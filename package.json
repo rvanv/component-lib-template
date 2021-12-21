@@ -1,0 +1,28 @@
+{
+  "name": "component-lib-template",
+  "version": "1.0.0",
+  "description": "component library template",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvanv/component-lib-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rvanv/component-lib-template/issues"
+  },
+  "homepage": "https://github.com/rvanv/component-lib-template#readme",
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "typescript": "^4.5.4"
+  }
+}
