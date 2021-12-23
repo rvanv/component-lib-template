@@ -16,21 +16,21 @@ touch src/fields/Field.spec.tsx
 ```tsx
 // File: src/fields/Field.spec.tsx
 
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Field } from './Field';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import { Field } from "./Field";
 
-describe('Field', () => {
-  describe('Label', () => {
-    it('applies unique ID to htmlFor attribute', () => {});
+describe("Field", () => {
+  describe("Label", () => {
+    it("applies unique ID to htmlFor attribute", () => {});
   });
 
-  describe('Input', () => {
-    it('applies unique ID to id attribute', () => {});
+  describe("Input", () => {
+    it("applies unique ID to id attribute", () => {});
   });
 
-  describe('TextArea', () => {
-    it('applies unique ID to id attribute', () => {});
+  describe("TextArea", () => {
+    it("applies unique ID to id attribute", () => {});
   });
 });
 ```
@@ -46,7 +46,7 @@ npm run test -- --watch
 Our first test is asserting that a `Field.Label` component receives a unique ID applied as a `for` attribute. If we were to implement a test now, every render of the component would create a unique result for that ID. Let's test that by adding the following:
 
 ```tsx
-it('applies unique ID to htmlFor attribute', () => {
+it("applies unique ID to htmlFor attribute", () => {
   render(
     <Field>
       <Field.Label>Label</Field.Label>
@@ -69,7 +69,7 @@ touch src/utils/__mocks__/useUniqueID.ts
 ```tsx
 // File: src/utils/__mocks__/useUniqueID.ts
 
-export const useUniqueID = (): string => 'unique-id';
+export const useUniqueID = (): string => "unique-id";
 ```
 
 This mock will always return `unique-id` for each request. Now we can enable the mock by calling `jest.mock()` within `Field.spec.tsx`. You should now see `unique-id` displayed as the `for` element in your log output.
@@ -77,20 +77,20 @@ This mock will always return `unique-id` for each request. Now we can enable the
 ```tsx
 // File: src/fields/Field.spec.tsx
 
-jest.mock('../utils/useUniqueID');
+jest.mock("../utils/useUniqueID");
 ```
 
 We can now update our test to assert that the `for` attribute receives the correct value.
 
 ```tsx
-it('applies unique ID to htmlFor attribute', () => {
+it("applies unique ID to htmlFor attribute", () => {
   render(
     <Field>
       <Field.Label>Label</Field.Label>
     </Field>
   );
 
-  expect(screen.getByText('Label')).toHaveAttribute('for', 'unique-id');
+  expect(screen.getByText("Label")).toHaveAttribute("for", "unique-id");
 });
 ```
 
@@ -99,8 +99,8 @@ it('applies unique ID to htmlFor attribute', () => {
 For both the `Input` and `Textarea` components we are able to use the `getByLabelText()` query to retrieve the DOM elements. We assert that the elements will have the correct `id` attributes provided.
 
 ```tsx
-describe('Input', () => {
-  it('applies unique ID to id attribute', () => {
+describe("Input", () => {
+  it("applies unique ID to id attribute", () => {
     render(
       <Field>
         <Field.Label>Input</Field.Label>
@@ -108,12 +108,12 @@ describe('Input', () => {
       </Field>
     );
 
-    expect(screen.getByLabelText('Input')).toHaveAttribute('id', 'unique-id');
+    expect(screen.getByLabelText("Input")).toHaveAttribute("id", "unique-id");
   });
 });
 
-describe('TextArea', () => {
-  it('applies unique ID to id attribute', () => {
+describe("TextArea", () => {
+  it("applies unique ID to id attribute", () => {
     render(
       <Field>
         <Field.Label>Textarea</Field.Label>
@@ -121,9 +121,9 @@ describe('TextArea', () => {
       </Field>
     );
 
-    expect(screen.getByLabelText('Textarea')).toHaveAttribute(
-      'id',
-      'unique-id'
+    expect(screen.getByLabelText("Textarea")).toHaveAttribute(
+      "id",
+      "unique-id"
     );
   });
 });

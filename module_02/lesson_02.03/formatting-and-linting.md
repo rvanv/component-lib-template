@@ -52,7 +52,7 @@ We will be using the following plugins in our library:
 
 - `@typescript-eslint/parser` and `@typescript-eslint/eslint-plugin` allow ESLint to parse and apply rules to TypeScript.
 
-- `eslint-config-prettier`  disable all style rules that conflict with Prettier.
+- `eslint-config-prettier` disable all style rules that conflict with Prettier.
 
 - `eslint-plugin-react` and `eslint-plugin-react-hooks` enable React-specific linting rules.
 

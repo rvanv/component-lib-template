@@ -35,10 +35,10 @@ Our unique IDs aren't required to be cryptographically secure so we are able to 
 ```ts
 // File: src/utils/useUniqueID.ts
 
-import { useState } from 'react';
-import { customAlphabet } from 'nanoid/non-secure';
+import { useState } from "react";
+import { customAlphabet } from "nanoid/non-secure";
 
-const nanoid = customAlphabet('1234567890abcdef', 10);
+const nanoid = customAlphabet("1234567890abcdef", 10);
 
 export const useUniqueID = (): string => {
   const [id] = useState(nanoid());
@@ -64,7 +64,7 @@ Next, we can create a new `FieldContext` export that is typed to return a `strin
 ```ts
 // File: src/fields/FieldContext.tsx
 
-import { createContext } from 'react';
+import { createContext } from "react";
 
 export const FieldContext = createContext<string | undefined>(undefined);
 ```
@@ -74,9 +74,9 @@ Our `Field` component will call the `useUniqueID` hook and provide that value to
 ```tsx
 // File: src/fields/Field.tsx
 
-import React from 'react';
-import { useUniqueID } from '../utils/useUniqueID';
-import { FieldContext } from './FieldContext';
+import React from "react";
+import { useUniqueID } from "../utils/useUniqueID";
+import { FieldContext } from "./FieldContext";
 
 export const Field: React.FC = ({ children }) => {
   const id = useUniqueID();
@@ -96,16 +96,16 @@ touch src/fields/Label.tsx
 ```tsx
 // File: src/fields/Label.tsx
 
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 
 export const Label = React.forwardRef<
   HTMLLabelElement,
-  React.ComponentPropsWithoutRef<'label'>
+  React.ComponentPropsWithoutRef<"label">
 >((props, ref) => {
   return <label ref={ref} {...props} />;
 });
 
-Label.displayName = 'Field.Label';
+Label.displayName = "Field.Label";
 ```
 
 We are able to customize the `displayName` property to ensure that any errors reference the correct component name. Now we will retrieve the unique ID from `FieldContext` with the `useContext` hook. This value is applied to the `htmlFor` attribute.
@@ -135,19 +135,19 @@ touch src/fields/Input.tsx
 ```tsx
 // File: src/fields/Input.tsx
 
-import React, { useContext } from 'react';
-import { FieldContext } from './FieldContext';
+import React, { useContext } from "react";
+import { FieldContext } from "./FieldContext";
 
 export const Input = React.forwardRef<
   HTMLInputElement,
-  React.ComponentPropsWithoutRef<'input'>
+  React.ComponentPropsWithoutRef<"input">
 >((props, ref) => {
   const id = useContext(FieldContext);
 
   return <input ref={ref} id={id} {...props} />;
 });
 
-Input.displayName = 'Field.Input';
+Input.displayName = "Field.Input";
 ```
 
 ## Compound components and TypeScript
@@ -157,8 +157,8 @@ With the `Label` and `Input` components built we need to export them as properti
 ```tsx
 // File: src/fields/Field.tsx
 
-import { Label } from './Label';
-import { Input } from './Input';
+import { Label } from "./Label";
+import { Input } from "./Input";
 
 interface FieldComposition {
   Label: typeof Label;
@@ -184,12 +184,12 @@ touch src/stories/Input.stories.tsx
 ```tsx
 // File: src/stories/Input.stories.tsx
 
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
-import { Field } from '../fields/Field';
+import React from "react";
+import { Story, Meta } from "@storybook/react";
+import { Field } from "../fields/Field";
 
 export default {
-  title: 'Example/Input',
+  title: "Example/Input",
   component: Field.Input,
   subcomponents: { Field, label: Field.Label },
 } as Meta;
@@ -204,7 +204,7 @@ export const Default: Story = ({ placeholder }) => {
 };
 
 Default.args = {
-  placeholder: 'Placeholder content',
+  placeholder: "Placeholder content",
 };
 ```
 
@@ -225,14 +225,14 @@ We will be creating two styled components, `StyledLabel` and `StyledInput`. Thes
 ```tsx
 // File: src/fields/styles.ts
 
-import styled from 'styled-components';
-import { transparentize } from 'polished';
+import styled from "styled-components";
+import { transparentize } from "polished";
 import {
   SECONDARY_COLOR,
   SECONDARY_TEXT_COLOR,
   PRIMARY_COLOR,
   DISABLED_OPACITY,
-} from '../utils/styles';
+} from "../utils/styles";
 
 export const StyledLabel = styled.label`
   font-weight: 500;
@@ -270,7 +270,7 @@ We then need to consume these styles in our components.
 ```tsx
 // File: src/fields/Label.tsx
 
-import { StyledLabel } from './styles';
+import { StyledLabel } from "./styles";
 
 return <StyledLabel ref={ref} htmlFor={id} {...props} />;
 ```
@@ -278,7 +278,7 @@ return <StyledLabel ref={ref} htmlFor={id} {...props} />;
 ```tsx
 // File: src/fields/Input.tsx
 
-import { StyledInput } from './styles';
+import { StyledInput } from "./styles";
 
 return <StyledInput ref={ref} id={id} {...props} />;
 ```

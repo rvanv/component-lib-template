@@ -31,9 +31,12 @@ Providing separate components for each element allows consumers to reorder, styl
 - React `forwardRef` API
 
 ```tsx
-<Field> // Generates our unique ID
-  <Field.Label>Compound API</Field.Label>  // Renders a label with `htmlFor` attribute
-  <Field.Input placeholder="Hello" />  // Renders an input with `id` attribute
+<Field>
+  {" "}
+  // Generates our unique ID
+  <Field.Label>Compound API</Field.Label> // Renders a label with `htmlFor`
+  attribute
+  <Field.Input placeholder="Hello" /> // Renders an input with `id` attribute
 </Field>
 ```
 

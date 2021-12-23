@@ -20,11 +20,11 @@ We can add prop-type validation to our `Button` component with the following:
 ```tsx
 // File: src/buttons/Button.tsx
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(['secondary', 'primary', 'danger']),
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  variant: PropTypes.oneOf(["secondary", "primary", "danger"]),
+  size: PropTypes.oneOf(["small", "medium", "large"]),
   isFullWidth: PropTypes.bool,
 };
 ```

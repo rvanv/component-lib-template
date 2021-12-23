@@ -6,7 +6,6 @@ privateVideoUrl: https://fullstack.wistia.com/medias/xjap4t2cbu
 isPublicLesson: true
 ---
 
-
 This course is written with flexibility in mind. The lessons are recorded in a MacOS environment, but all examples are applicable for Windows, and Linux environments as well.
 
 ## GitHub account

@@ -98,7 +98,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
-}
+};
 ```
 
 ![Bootstrap global resets](./public/assets/bootstrap-resets.png)

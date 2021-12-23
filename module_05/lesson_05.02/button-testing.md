@@ -22,16 +22,16 @@ touch src/buttons/Button.spec.tsx
 ```tsx
 // File: src/buttons/Button.spec.tsx
 
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Button } from './Button';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import { Button } from "./Button";
 
-describe('Button', () => {
-  it('applies default type of button', () => {});
+describe("Button", () => {
+  it("applies default type of button", () => {});
 
-  it('applies specific type if provided', () => {});
+  it("applies specific type if provided", () => {});
 
-  it('applies valid attribute to element', () => {});
+  it("applies valid attribute to element", () => {});
 });
 ```
 
@@ -46,10 +46,10 @@ npm run test -- --watch
 Our first test will render a simple `Button` implementation. We will create an assertion that ensures the `type` attribute is equal to `button`.
 
 ```tsx
-it('applies default type of button', () => {
+it("applies default type of button", () => {
   render(<Button>hello</Button>);
 
-  expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
+  expect(screen.getByRole("button")).toHaveAttribute("type", "button");
 });
 ```
 
@@ -62,10 +62,10 @@ The `toHaveAttribute` Jest matcher is provided by `jest-dom` and allows us to as
 The next test shows that it is possible for consumers to override this default behavior. It will be similar to the first implementation, but we will include an explicit `type="submit"` prop and assert that the matching DOM attribute matches that same value.
 
 ```tsx
-it('applies specific type if provided', () => {
+it("applies specific type if provided", () => {
   render(<Button type="submit">hello</Button>);
 
-  expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
+  expect(screen.getByRole("button")).toHaveAttribute("type", "submit");
 });
 ```
 
@@ -74,10 +74,10 @@ it('applies specific type if provided', () => {
 The final test ensures that any other props are spread onto the `button` element as attributes. We will use a valid `aria-label` prop to test this.
 
 ```tsx
-it('applies valid attribute to element', () => {
+it("applies valid attribute to element", () => {
   render(<Button aria-label="Test">Hello</Button>);
 
-  expect(screen.getByRole('button')).toHaveAttribute('aria-label', 'Test');
+  expect(screen.getByRole("button")).toHaveAttribute("aria-label", "Test");
 });
 ```
 

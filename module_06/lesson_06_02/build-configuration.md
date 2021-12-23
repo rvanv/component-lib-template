@@ -16,8 +16,8 @@ touch src/index.ts
 ```tsx
 // File: src/index.ts
 
-export * from './buttons/Button';
-export * from './fields/Field';
+export * from "./buttons/Button";
+export * from "./fields/Field";
 ```
 
 This module will export all of the components and types defined for our `Button` and `Field` components.
@@ -92,32 +92,32 @@ Next, create a new configuration file, `rollup.config.js`, with the following co
 
 /* eslint-env node */
 
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import babel from '@rollup/plugin-babel';
-import externals from 'rollup-plugin-node-externals';
-import del from 'rollup-plugin-delete';
-import pkg from './package.json';
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import babel from "@rollup/plugin-babel";
+import externals from "rollup-plugin-node-externals";
+import del from "rollup-plugin-delete";
+import pkg from "./package.json";
 
 export default [
   {
-    input: './src/index.ts',
+    input: "./src/index.ts",
     plugins: [
-      del({ targets: 'dist/*' }),
+      del({ targets: "dist/*" }),
       externals({ deps: true }),
       nodeResolve({
-        extensions: ['.js', '.ts', '.tsx'],
+        extensions: [".js", ".ts", ".tsx"],
       }),
       commonjs(),
       babel({
-        babelHelpers: 'runtime',
-        exclude: '**/node_modules/**',
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        babelHelpers: "runtime",
+        exclude: "**/node_modules/**",
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
     ],
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' },
+      { file: pkg.main, format: "cjs" },
+      { file: pkg.module, format: "es" },
     ],
   },
 ];
@@ -173,7 +173,7 @@ To build our library we must update our package entry-points and `scripts` withi
     "format": "prettier --write \"src/**/*\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
-  },
+  }
 }
 ```
 

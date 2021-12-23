@@ -3,7 +3,7 @@ title: Introduction and tooling
 privateVideoUrl: https://fullstack.wistia.com/medias/vzwijon31m
 ---
 
-Testing a component library is similar to application testing. Our tests should resemble how consumers will actually use our library. Testing is a complex topic that deserves its own course and we will just be scratching the surface.  In this module we will be setting up a basic testing environment using [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) and [ts-jest](https://kulshekhar.github.io/ts-jest/).
+Testing a component library is similar to application testing. Our tests should resemble how consumers will actually use our library. Testing is a complex topic that deserves its own course and we will just be scratching the surface. In this module we will be setting up a basic testing environment using [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) and [ts-jest](https://kulshekhar.github.io/ts-jest/).
 
 React Testing Library has several [guiding principles](https://testing-library.com/docs/guiding-principles) that help ensure that your tests are as flexible and accurate as possible. `ts-jest` is a TypeScript pre-processor that ensures Jest is able to consume and type-check our tests.
 
@@ -26,7 +26,7 @@ touch jest.config.js
 /* eslint-env node */
 
 module.exports = {
-  preset: 'ts-jest'
+  preset: "ts-jest",
 };
 ```
 
@@ -36,7 +36,7 @@ Jest is now configured to consume any TypeScript tests we write. We can update o
 // File: package.json
 
 {
- "scripts": {
+  "scripts": {
     "test": "jest"
   }
 }
@@ -59,7 +59,7 @@ touch jest-setup.ts
 ```ts
 // File: jest-setup.ts
 
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 ```
 
 We then reference this file in our `jest.config.js` and `tsconfig.json` files to make them available.
@@ -68,8 +68,8 @@ We then reference this file in our `jest.config.js` and `tsconfig.json` files to
 // File: jest.config.js
 
 module.exports = {
-  preset: 'ts-jest',
-  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
+  preset: "ts-jest",
+  setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
 };
 ```
 

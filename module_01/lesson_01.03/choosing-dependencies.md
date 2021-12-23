@@ -35,8 +35,8 @@ NPM packages have [three types of dependencies](https://docs.npmjs.com/specifyin
   "devDependencies": {
     "eslint": "^7.19.0", // Only required for local development
     "react": "^17.0.1", // Local development version
-    "react-dom": "^17.0.1", // Within valid peerDependency range
-  },
+    "react-dom": "^17.0.1" // Within valid peerDependency range
+  }
 }
 ```
 

@@ -33,7 +33,9 @@ The `React.FC` definition already includes `children` as a valid prop. We can pa
 ```tsx
 // File: src/stories/Button.stories.tsx
 
-const Template: Story = (args) => <Button {...args}>my button component</Button>;
+const Template: Story = (args) => (
+  <Button {...args}>my button component</Button>
+);
 ```
 
 ## `forwardRef` API
@@ -53,7 +55,7 @@ export const Button = React.forwardRef<HTMLButtonElement>(
   }
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 ```
 
 To help TypeScript consumers understand what element is returned from the `ref` prop, we must provide a type variable that represents the element we're passing it to - `HTMLButtonElement` in this case.
@@ -65,12 +67,15 @@ Another pattern that increases the flexibility of components is [JSX prop-spread
 Prop-spreading can help with the following scenarios:
 
 Provide accessibility props for certain content
+
 - `<Button aria-label="Accessibility text">{/* icon */}</Button>`
 
 Add custom data attributes for automated testing
+
 - `<Button data-testid="checkout-button">Checkout</Button>`
 
 Use a native event that isn't defined in our props
+
 - `<Button onMouseMove={() => {}}>Events</Button>`
 
 Without prop-spreading, each of the scenarios above would require explicit props to be defined. This leads to what I call _**prop-sheets of doom**_. It can be common to see components with prop-sheets that include hundreds of individual props, most of which duplicate native functionality or are only relevant to a few specific implementations of the component.
@@ -82,7 +87,7 @@ Prop-spreading helps ensure that our shared components stay as flexible as the n
 
 export const Button = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentPropsWithoutRef<'button'>
+  React.ComponentPropsWithoutRef<"button">
 >(({ children, ...props }, ref) => {
   return (
     <button ref={ref} {...props}>

@@ -30,17 +30,17 @@ module.exports = ({ dedent }) => ({
   whatYouWillLearn: {
     items: [
       {
-        text: "How to identify potential shared components in an existing codebase"
+        text: "How to identify potential shared components in an existing codebase",
       },
       { text: "Importance of choosing your libraries dependencies" },
       {
-        text: "How to create an NPM library from scratch with TypeScript and Storybook"
+        text: "How to create an NPM library from scratch with TypeScript and Storybook",
       },
       { text: "Basic and advanced API patterns for shared components" },
       {
-        text: "How to build and deploy a modern NPM package to a private NPM registry"
-      }
-    ]
+        text: "How to build and deploy a modern NPM package to a private NPM registry",
+      },
+    ],
   },
   primaryDescriptionMarkdown: dedent(`
   This course will teach you how to create a flexible, private, enterprise-grade component library using React.
@@ -81,24 +81,24 @@ module.exports = ({ dedent }) => ({
         features: [
           { text: "Learn about shared component API patterns" },
           { text: "Build a private component library" },
-          { text: "Integrate our library with GitHub Actions and Registry" }
-        ]
-      }
-    }
+          { text: "Integrate our library with GitHub Actions and Registry" },
+        ],
+      },
+    },
   },
   authorBios: {
     austingreendev: dedent(`
     My name is Austin Green and I'm a software engineer focused on creating the best shared developer experiences. I come from a full-stack background, but have been focusing on shared front-end components and tooling since 2016.
-`)
+`),
   },
   faq: [
     {
       q: "Who is this course for?",
-      a: "Anyone with a basic understanding of React and front-end development including HTML, CSS, and JavaScript."
+      a: "Anyone with a basic understanding of React and front-end development including HTML, CSS, and JavaScript.",
     },
     {
       q: "What if I need help?",
-      a: "You can ask us questions anytime through the community Discord channel or by [sending us a message](mailto:us@fullstack.io)."
-    }
-  ]
+      a: "You can ask us questions anytime through the community Discord channel or by [sending us a message](mailto:us@fullstack.io).",
+    },
+  ],
 });

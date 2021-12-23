@@ -20,8 +20,8 @@ This will extend the existing styles from our Input element. For the `Textarea` 
 ```tsx
 // File: src/fields/styles.ts
 
-export const StyledTextarea = styled(StyledInput as 'textarea').attrs({
-  as: 'textarea',
+export const StyledTextarea = styled(StyledInput as "textarea").attrs({
+  as: "textarea",
 })``;
 ```
 
@@ -40,20 +40,20 @@ The implementation of the `Textarea` mimics `Input` closely. The differences wil
 ```tsx
 // File: src/fields/Textarea.tsx
 
-import React, { useContext } from 'react';
-import { FieldContext } from './FieldContext';
-import { StyledTextarea } from './styles';
+import React, { useContext } from "react";
+import { FieldContext } from "./FieldContext";
+import { StyledTextarea } from "./styles";
 
 export const Textarea = React.forwardRef<
   HTMLTextAreaElement, // New type for `ref` consumers
-  React.ComponentPropsWithoutRef<'textarea'> // New component props
+  React.ComponentPropsWithoutRef<"textarea"> // New component props
 >((props, ref) => {
   const id = useContext(FieldContext);
 
   return <StyledTextarea ref={ref} id={id} {...props} />; // New styled element
 });
 
-Textarea.displayName = 'Field.Textarea'; // Updated display name
+Textarea.displayName = "Field.Textarea"; // Updated display name
 ```
 
 Next, we need to add `Textarea` as a compound component to `Field`.
@@ -83,12 +83,12 @@ touch src/stories/Textarea.stories.tsx
 ```tsx
 // File: src/stories/Textarea.stories.tsx
 
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
-import { Field } from '../fields/Field';
+import React from "react";
+import { Story, Meta } from "@storybook/react";
+import { Field } from "../fields/Field";
 
 export default {
-  title: 'Example/TextArea',
+  title: "Example/TextArea",
   component: Field.Textarea,
   subcomponents: { Field, label: Field.Label },
 } as Meta;
@@ -116,13 +116,13 @@ To allow this style option we will need to create a new `isResizable` style prop
 ```tsx
 // File: src/fields/Textarea.tsx
 
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import { FieldContext } from './FieldContext';
-import { StyledTextarea } from './styles';
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import { FieldContext } from "./FieldContext";
+import { StyledTextarea } from "./styles";
 
 export interface TextareaProps
-  extends React.ComponentPropsWithoutRef<'textarea'> {
+  extends React.ComponentPropsWithoutRef<"textarea"> {
   isResizable?: boolean;
 }
 
@@ -130,11 +130,13 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ isResizable, ...props }, ref) => {
     const id = useContext(FieldContext);
 
-    return <StyledTextarea ref={ref} id={id} isResizable={isResizable} {...props} />;
+    return (
+      <StyledTextarea ref={ref} id={id} isResizable={isResizable} {...props} />
+    );
   }
 );
 
-Textarea.displayName = 'Field.Textarea';
+Textarea.displayName = "Field.Textarea";
 
 Textarea.defaultProps = {
   isResizable: true,
@@ -152,13 +154,12 @@ Once `Textarea` is updated, we can add the matching style logic to `StyledTextar
 ```tsx
 // File: src/fields/styles.ts
 
-import { TextareaProps } from './Textarea';
+import { TextareaProps } from "./Textarea";
 
-
-export const StyledTextarea = styled(StyledInput as 'textarea').attrs({
-  as: 'textarea',
+export const StyledTextarea = styled(StyledInput as "textarea").attrs({
+  as: "textarea",
 })<TextareaProps>`
-  resize: ${(props) => !props.isResizable && 'none'};
+  resize: ${(props) => !props.isResizable && "none"};
 `;
 ```
 

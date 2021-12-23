@@ -25,7 +25,7 @@ With these values we are able to create a custom prop interface for our `Button`
 ```tsx
 // File: src/buttons/Button.tsx
 
-export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   variant?: "secondary" | "primary" | "danger";
   size?: "small" | "medium" | "large";
   isFullWidth?: boolean;
@@ -33,12 +33,13 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, variant, size, isFullWidth, ...props }, ref) => {
-  return (
-    <button ref={ref} type="button" {...props}>
-      {children}
-    </button>
-  );
-});
+    return (
+      <button ref={ref} type="button" {...props}>
+        {children}
+      </button>
+    );
+  }
+);
 
 Button.defaultProps = {
   variant: "secondary",
@@ -95,7 +96,7 @@ The styled component uses `styled.button` to ensure that we are styling the corr
 
 import styled from "styled-components";
 import { ButtonProps } from "./Button";
-import { DISABLED_OPACITY } from '../utils/styles';
+import { DISABLED_OPACITY } from "../utils/styles";
 
 export const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
@@ -129,11 +130,11 @@ Next, update the main `Button` component to return the `StyledButton` component 
 ```tsx
 // File: src/buttons/Button.tsx
 
-import { StyledButton } from './styles.ts';
+import { StyledButton } from "./styles.ts";
 
 export const Button = React.forwardRef<
   HTMLButtonElement,
-  ButtonProps & React.ComponentPropsWithoutRef<'button'>
+  ButtonProps & React.ComponentPropsWithoutRef<"button">
 >(({ children, variant, size, isFullWidth, ...props }, ref) => {
   return (
     <StyledButton
@@ -217,7 +218,7 @@ This utility function will also use the polished [transparentize](https://polish
 ```ts
 // File: src/buttons/styles.ts
 
-import { transparentize } from 'polished';
+import { transparentize } from "polished";
 
 const colorStyles = (p: ButtonProps) => {
   let color = SECONDARY_TEXT_COLOR,

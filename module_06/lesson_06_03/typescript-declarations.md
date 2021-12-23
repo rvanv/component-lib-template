@@ -39,7 +39,7 @@ To make these types available we include a `types` value into our `package.json`
   "scripts": {
     "build": "npm run build:js && npm run build:types",
     "build:types": "tsc -p tsconfig.build.json"
-  },
+  }
 }
 ```
 
