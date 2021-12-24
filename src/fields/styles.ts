@@ -6,6 +6,7 @@ import {
   PRIMARY_COLOR,
   DISABLED_OPACITY,
 } from '../utils/styles';
+import { TextAreaProps } from './TextArea';
 
 export const StyledLabel = styled.label`
   font-weight: 500;
@@ -35,4 +36,10 @@ export const StyledInput = styled.input`
     background-color: ${SECONDARY_COLOR};
     opacity: ${DISABLED_OPACITY};
   }
+`;
+
+export const StyledTextArea = styled(StyledInput as 'textarea').attrs({
+   as: 'textarea',
+})<TextAreaProps>`
+  resize: ${props => !props.isResizable && 'none'}
 `;
